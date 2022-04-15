@@ -4,7 +4,7 @@ module.exports = {
   mode: 'development',
   entry: {
     bundle: path.resolve(__dirname, 'src/app.js'),
-    'service-worker': "./service-worker.js"
+    'service-worker': "./src/service-worker.js"
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
