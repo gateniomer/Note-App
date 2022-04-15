@@ -14,5 +14,5 @@
   "offline_enabled": true,
   "theme_color" : "#f69435",
   "background_color" : "#f69435",
-  "scope" : "/Note-App/"
+  "scope" : "/"
 }
