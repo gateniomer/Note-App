@@ -2,7 +2,7 @@
   "short_name": "Note App",
   "name": "Note App",
   "display": "fullscreen",
-  "start_url": "/",
+  "start_url": "/Note-App/",
   "icons": [
     {
       "src" : "icon.png",
@@ -14,5 +14,5 @@
   "offline_enabled": true,
   "theme_color" : "#f69435",
   "background_color" : "#f69435",
-  "scope" : "/"
+  "scope" : "/Note-App/"
 }
