@@ -1,0 +1,14 @@
+{
+  "short_name": "Note App",
+  "name": "Note App",
+  "display": "standalone",
+  "icons": [
+    {
+      "src" : "icon.png",
+      "type": "image/svg+xml",
+      "sizes": "250x250"
+    }
+  ],
+  "description": "Note App",
+  "offline_enabled": true
+}
