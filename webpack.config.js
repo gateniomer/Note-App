@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: {
     bundle: path.resolve(__dirname, 'src/app.js'),
-    'service-worker': "./src/service-worker.js"
+    // 'service-worker': "./src/service-worker.js"
   },
   plugins: [
    new WorkboxPlugin.GenerateSW({
