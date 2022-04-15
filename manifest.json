@@ -2,7 +2,7 @@
   "short_name": "Note App",
   "name": "Note App",
   "display": "fullscreen",
-  "start_url": "/Note-App",
+  "start_url": "/",
   "icons": [
     {
       "src" : "icon.png",
