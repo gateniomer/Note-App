@@ -1,13 +1,13 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: {
     bundle: path.resolve(__dirname, 'src/app.js'),
     'service-worker': "./src/service-worker.js"
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     filename: '[name].js'
   },
   devServer: {
