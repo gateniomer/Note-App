@@ -30,7 +30,7 @@ observable.subscribe('notes-cleared',updateNoteList);
   uiCtrl.clearInput();
 }
 
-function updateNoteList(data){
+function updateNoteList(){
   console.log('Updating notes...');
   //check if any arguments were passed to the function
   if(data !== undefined){
@@ -65,13 +65,7 @@ function init(){
   //Update Note List
   updateNoteList();
 
-  // Check that service workers are supported
-//   if ('serviceWorker' in navigator) {
-//   // Use the window load event to keep the page load performant
-//   window.addEventListener('load', () => {
-//     navigator.serviceWorker.register('/Note-App/service-worker.js');
-//   });
-// }
+  // Register new service worker (using webpack plugin)
  if ('serviceWorker' in navigator) {
    window.addEventListener('load', () => {
      navigator.serviceWorker.register('/Note-App/service-worker.js').then(registration => {
