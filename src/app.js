@@ -30,13 +30,9 @@ observable.subscribe('notes-cleared',updateNoteList);
   uiCtrl.clearInput();
 }
 
-function updateNoteList(){
+function updateNoteList(...args){
   console.log('Updating notes...');
-  //check if any arguments were passed to the function
-  if(data !== undefined){
-    //using the arguments
-    console.log(data);
-  }
+  console.log(args);
   //Retrieving the notes from local storage
   const notes = storageCtrl.getNotesFromLocalStorage();
   //Update UI using UIController
