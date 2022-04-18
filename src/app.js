@@ -7,7 +7,7 @@ import Observable from './observer';
 const storageCtrl = new StorageCtrl();
 const uiCtrl = new UICtrl();
 const observable = new Observable();
-const APP_VERSION = 0.1;
+const APP_VERSION = '0.1.1';
 
 //Add targets to the observer
 observable.subscribe('note-created',updateNoteList);
@@ -33,9 +33,8 @@ observable.subscribe('notes-cleared',updateNoteList);
   onInputTitleUnFocus()
 }
 
-function updateNoteList(...args){
+function updateNoteList(){
   console.log('Updating notes...');
-  console.log(args);
   //Retrieving the notes from local storage
   const notes = storageCtrl.getNotesFromLocalStorage();
   //Update UI using UIController
@@ -46,7 +45,7 @@ function clearNotes(){
   //Clear notes from local storage
   storageCtrl.clearNotesFromLocalStorage();
   //Fire the 'notes-cleard' event
-  observable.fire('notes-cleared','test');
+  observable.fire('notes-cleared');
 }
 
 function onInputTitleFocus(){

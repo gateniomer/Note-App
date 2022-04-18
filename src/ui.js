@@ -1,4 +1,3 @@
-
 export default class UICtrl{
   constructor(){
     this.UISelectors = {
@@ -10,16 +9,32 @@ export default class UICtrl{
     }
   }
   updateNotesUI(notes){
+    //Get note list in ui
     const noteList = document.querySelector(this.UISelectors.homeState);
+    //Resets note list's inner html
     noteList.innerHTML = '';
+
+    //Add each object to the ui
     notes.forEach(note => {
-      noteList.innerHTML+=`
-      <div class='note'>
-      <h3>${note.title}</h3>
-      <p>${note.body}</p>
-      <span> _${note.id}</span>
-      </div>
+      const noteDiv = document.createElement('div');
+      noteDiv.className = 'note';
+      noteDiv.innerHTML+=`
+        <h3>${note.title}</h3>
+        <p>${note.body}</p>
+        <span> _${note.id}</span>
       `;
+
+      //[EXPERIMENTAL] Using the note class to check if pinned
+      try{
+        noteDiv.innerHTML+=`
+        <br>
+        <p><strong>pinned:</strong> ${note.options.pinTop} <strong>highlighted:</strong> ${note.options.highlighted}</p>
+        `;
+      } catch(e){
+        console.log(e.name + ': ' + e.message);
+      }
+      
+      noteList.appendChild(noteDiv);
     });
     document.querySelector(this.UISelectors.container).appendChild(noteList);
   }

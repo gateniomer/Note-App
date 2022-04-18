@@ -1,8 +1,26 @@
+import Note from "./note";
+
 export default class StorageCtrl{
 
   getNotesFromLocalStorage(){
-    const notes = localStorage.getItem('notes');
-    return (notes===null) ? [] : JSON.parse(notes);
+    //Get data from local storage
+    const dataFromLocalStorage = localStorage.getItem('notes');
+
+    //Check if these is no data in local storage
+    if(dataFromLocalStorage===null){
+      return [];
+    }else{
+      //Parse data from local storage to array of regular objects
+      const notesObj = JSON.parse(dataFromLocalStorage);
+      //Create array for Note objects
+      let notes = [];
+      //Iterate and transform each regular object to a 'Note' object, then add it to 'notes' array.
+      notesObj.forEach(noteObj => {
+        const note = Object.setPrototypeOf(noteObj,Note.prototype);
+        notes.push(note);
+      });
+      return notes;
+    }
   }
 
   saveNoteToLocalStorage(note){
