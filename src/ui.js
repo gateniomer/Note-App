@@ -4,7 +4,8 @@ export default class UICtrl{
     this.UISelectors = {
       container: '.container',
       homeState: '#home-state',
-      noteTitleInput: '#note-title-input'
+      noteTitleInput: '#note-title-input',
+      noteBodyInput: '#note-body-input'
     }
   }
   updateNotesUI(notes){
@@ -23,12 +24,16 @@ export default class UICtrl{
   }
   getInputValues(){
     const inputTitle = document.querySelector(this.UISelectors.noteTitleInput);
+    const inputBody = document.querySelector(this.UISelectors.noteBodyInput);
     return{
-      title: inputTitle.value
+      title: inputTitle.value,
+      body: inputBody.value
     }
   }
   clearInput(){
     const inputTitle = document.querySelector(this.UISelectors.noteTitleInput);
+    const inputBody = document.querySelector(this.UISelectors.noteBodyInput);
     inputTitle.value = '';
+    inputBody.value = '';
   }
 }

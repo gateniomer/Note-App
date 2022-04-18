@@ -16,6 +16,7 @@ body{
   max-width: 90%;
   width: 900px;
   margin: 20px auto;
+  overflow: hidden;
 }
 
 .note{
@@ -25,6 +26,7 @@ body{
   margin: 5px;
   width: 40%;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .note span{
@@ -40,6 +42,17 @@ body{
   outline: none;
   color: #fff;
   margin: 1rem 0;
+}
+
+#note-body-input{
+  font-size: 1.6rem;
+  height: 50vh;
+  width: 90%;
+  max-width: 500px;
+  background-color: transparent;
+  border: 1px solid rgb(78, 78, 78);
+  outline: none;
+  color: #fff;
 }
 
 .btn{

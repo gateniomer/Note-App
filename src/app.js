@@ -21,7 +21,7 @@ observable.subscribe('notes-cleared',updateNoteList);
   //Get input from fields
   const inputValues = uiCtrl.getInputValues();
   //Creating new note
-  const note = new Note(notes.length  ,(inputValues.title!=='')?inputValues.title:`Note #${notes.length+1}`,`Body ${notes.length+1}`);
+  const note = new Note(notes.length  ,(inputValues.title!=='')?inputValues.title:`Note #${notes.length+1}`,(inputValues.body!=='')?inputValues.body:"");
   //Save new note to local storage
   storageCtrl.saveNoteToLocalStorage(note);
   //Fire the 'note-created' event
