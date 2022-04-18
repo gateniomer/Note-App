@@ -5,7 +5,8 @@ export default class UICtrl{
       container: '.container',
       homeState: '#home-state',
       noteTitleInput: '#note-title-input',
-      noteBodyInput: '#note-body-input'
+      noteBodyInput: '#note-body-input',
+      appVersion: '#app-version'
     }
   }
   updateNotesUI(notes){
@@ -35,5 +36,9 @@ export default class UICtrl{
     const inputBody = document.querySelector(this.UISelectors.noteBodyInput);
     inputTitle.value = '';
     inputBody.value = '';
+  }
+  updateVersionUI(vers){
+    const version = document.querySelector(this.UISelectors.appVersion);
+    version.textContent = `version: ${vers}`;
   }
 }

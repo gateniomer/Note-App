@@ -7,6 +7,7 @@ import Observable from './observer';
 const storageCtrl = new StorageCtrl();
 const uiCtrl = new UICtrl();
 const observable = new Observable();
+const APP_VERSION = 0.1;
 
 //Add targets to the observer
 observable.subscribe('note-created',updateNoteList);
@@ -28,6 +29,8 @@ observable.subscribe('notes-cleared',updateNoteList);
   observable.fire('note-created');
   //Clear input fields
   uiCtrl.clearInput();
+  //Hide note body
+  onInputTitleUnFocus()
 }
 
 function updateNoteList(...args){
@@ -46,17 +49,38 @@ function clearNotes(){
   observable.fire('notes-cleared','test');
 }
 
+function onInputTitleFocus(){
+  const body = document.querySelector(uiCtrl.UISelectors.noteBodyInput);
+  body.style.height = '50vh';
+  body.style.visibility = 'visible';
+}
+
+function onInputTitleUnFocus(){
+  const body = document.querySelector(uiCtrl.UISelectors.noteBodyInput);
+  body.style.height = '0';
+  body.style.visibility = 'hidden';
+}
+
 function loadEventListeners(){
+  //Clear button listener
   const clearBtn = document.querySelector('#clear');
   clearBtn.addEventListener('click',clearNotes);
 
+  //Add button listener
   const addBtn = document.querySelector('#add');
   addBtn.addEventListener('click',createNote);
+
+
+  const title = document.querySelector(uiCtrl.UISelectors.noteTitleInput);
+  title.addEventListener('focus',onInputTitleFocus);
 }
 
 function init(){
   //Load all the event listeners
   loadEventListeners();
+
+  //Update app version
+  uiCtrl.updateVersionUI(APP_VERSION);
 
   //Update Note List
   updateNoteList();
